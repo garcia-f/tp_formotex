@@ -3,6 +3,7 @@ import cors from "cors";
 import morgan from "morgan";
 import helmet from 'helmet';
 import { connectionDB } from '../src/config/connectionDB';
+import { envs } from "./environments/environments";
 
 
 
@@ -13,7 +14,7 @@ class Server {
 
     constructor() {
         this.app = express();
-        this.port = 3000;
+        this.port = envs.PORT;
 
         this.dbConnect();
         this.middlewares();
