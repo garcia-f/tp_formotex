@@ -1,15 +1,15 @@
 import { Model, DataTypes } from 'sequelize';
 import db from '../config/db';
-import { Equipment } from '../interfaces/equipment.interface';
+import { Equipamiento } from '../interfaces/equipamiento.interface';
 
-class EquipmentModel extends Model<Equipment> implements Equipment {
+class EquipamientoModel extends Model<Equipamiento> implements Equipamiento {
     public id!: number;
     public model!: string;
     public serial!: string;
     public stock!: number;
 }
 
-EquipmentModel.init({
+EquipamientoModel.init({
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -24,6 +24,6 @@ EquipmentModel.init({
     stock: {
         type: DataTypes.INTEGER
     }
-}, { sequelize: db, tableName: 'equipments' })
+}, { sequelize: db, tableName: 'equipamientos' })
 
-export { EquipmentModel }
+export { EquipamientoModel }
