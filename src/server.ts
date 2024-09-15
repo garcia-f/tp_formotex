@@ -5,6 +5,12 @@ import helmet from 'helmet';
 import { connectionDB } from '../src/config/connectionDB';
 import { envs } from "./environments/environments";
 
+import equipmentRoutes from "./routes/equipment.routes";
+import brandRoutes from "./routes/brand.routes";
+import categoryRoutes from "./routes/category.routes";
+import userRouter from "./routes/user.routes";
+import authRouter from "./routes/auth.routes";
+
 
 
 class Server {
@@ -34,7 +40,13 @@ class Server {
         this.app.use(express.json());
     }
 
-    routes(): void {}
+    routes(): void {
+        this.app.use("/api/equipment", equipmentRoutes);
+        this.app.use("/api/brand", brandRoutes);
+        this.app.use("/api/category", categoryRoutes);
+        this.app.use("/api/user", userRouter);
+        this.app.use("/auth", authRouter);
+    }
 
     listen(): void {
         this.app.listen( this.port, ()=> {

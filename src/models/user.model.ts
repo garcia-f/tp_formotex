@@ -1,8 +1,8 @@
 import { Model, DataTypes } from 'sequelize';
 import  db  from '../config/db';
-import { Usuario } from '../interfaces/usuario.interface';
+import { User } from '../interfaces/user.interface';
 
-class UsuarioModel extends Model<Usuario> implements Usuario {
+class UserModel extends Model<User> implements User {
     public id!: number;
     public name!: string;
     public email!: string;
@@ -11,7 +11,7 @@ class UsuarioModel extends Model<Usuario> implements Usuario {
     public state!: boolean
 }
 
-UsuarioModel.init({
+UserModel.init({
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -35,4 +35,4 @@ UsuarioModel.init({
     }
 }, { sequelize: db, tableName: 'usuarios' })
 
-export { UsuarioModel }
+export { UserModel }

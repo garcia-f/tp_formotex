@@ -1,25 +1,25 @@
-import { EquipamientoModel } from "../models/equipamiento.model";
-import { MarcaModel } from "../models/marca.model";
-import { CategoriaModel } from "../models/categoria.model";
+import { EquipmentModel } from "../models/equipment.model";
+import { BrandModel } from "../models/brand.model";
+import { CategoryModel } from "../models/category.model";
 
 export const associations = () => {
     return new Promise(( resolve, reject ) => {
         try {
-            MarcaModel.hasMany(EquipamientoModel, {
+            BrandModel.hasMany(EquipmentModel, {
                 foreignKey: 'brandId',
                 sourceKey: 'id',
             })
-            EquipamientoModel.belongsTo(MarcaModel, {
+            EquipmentModel.belongsTo(BrandModel, {
                 foreignKey: 'brandId',
                 targetKey: 'id',
                 as: 'brand'
             })
             
-            CategoriaModel.hasMany(EquipamientoModel, {
+            CategoryModel.hasMany(EquipmentModel, {
                 foreignKey: 'categoryId',
                 sourceKey: 'id',
             })
-            EquipamientoModel.belongsTo(CategoriaModel, {
+            EquipmentModel.belongsTo(CategoryModel, {
                 foreignKey: 'categoryId',
                 targetKey: 'id',
                 as: 'category'

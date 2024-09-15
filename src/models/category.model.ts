@@ -1,13 +1,13 @@
 import { Model, DataTypes } from 'sequelize';
-import { Marca } from "../interfaces/marca.interface";
-import db  from '../config/db';
+import { Category } from '../interfaces/category.interface';
+import db from '../config/db';
 
-class MarcaModel extends Model<Marca> implements Marca {
+class CategoryModel extends Model<Category> implements Category {
     public id!: number
     public name!: string
 }
 
-MarcaModel.init({
+CategoryModel.init({
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -16,6 +16,6 @@ MarcaModel.init({
     name: {
         type: DataTypes.STRING
     }
-}, { sequelize: db, tableName: 'marcas' })
+}, { sequelize: db, tableName: 'categories' })
 
-export { MarcaModel }
+export { CategoryModel }

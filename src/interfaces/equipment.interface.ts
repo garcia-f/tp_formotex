@@ -1,4 +1,4 @@
-export interface Equipamiento {
+export interface Equipment {
     id?: number
     model: string
     serial: string

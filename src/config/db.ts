@@ -7,8 +7,7 @@ const {
     DB_USER,
     DB_HOST,
     DB_DIALECT,
-    DB_PASSWORD,
-    DB_PORT
+    DB_PASSWORD
 } = envs;
 
 const db = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
