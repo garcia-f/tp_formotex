@@ -21,18 +21,20 @@ UserModel.init({
         type: DataTypes.STRING
     },
     email: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        unique: true
     },
     password: {
         type: DataTypes.INTEGER
     },
     role: {
-        type: DataTypes.ENUM('user', 'admin')
+        type: DataTypes.ENUM('user', 'admin'),
+        defaultValue: 'user'
     },
     state: {
         type: DataTypes.BOOLEAN,
         defaultValue: true
     }
-}, { sequelize: db, tableName: 'usuarios' })
+}, { sequelize: db, tableName: 'users' })
 
 export { UserModel }

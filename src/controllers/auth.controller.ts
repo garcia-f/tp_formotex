@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import UserService from "../services/user.service";
 import { hashPassword } from "../utils/hashString";
 import { createJWT } from "../utils/jsonwebtoken";
-import { User } from "../interfaces/user.interface";
 
 class AuthController {
 
