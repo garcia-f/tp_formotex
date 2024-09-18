@@ -30,13 +30,6 @@ class UserService {
 
         return user;
     }
-
-    // public async getUserByEmailAndPassword(email: string, password: string) {
-    //     const user = await UserModel.findOne({ where: { email, password } });
-    //     return user;
-    // }
-
-
     
     public async createUser(data: User) {
         const user = await UserModel.create(data);
