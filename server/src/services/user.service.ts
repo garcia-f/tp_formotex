@@ -1,5 +1,6 @@
 import { User } from "../interfaces/user.interface";
 import { UserModel } from "../models/user.model";
+import { comparePassword } from "../utils/comparePassword";
 
 class UserService {
 
@@ -14,12 +15,29 @@ class UserService {
         const user = await UserModel.findOne({ where: { id } });
         return user;
     }
-
     public async getUserByEmailAndPassword(email: string, password: string) {
-        const user = await UserModel.findOne({ where: { email, password } });
+        const user = await UserModel.findOne({ where: { email } });
+
+        if (!user) {
+            return null;
+        }
+
+        const isValidPassword = await comparePassword(password, user.password);
+
+        if (!isValidPassword) {
+            return null;
+        }
+
         return user;
     }
 
+    // public async getUserByEmailAndPassword(email: string, password: string) {
+    //     const user = await UserModel.findOne({ where: { email, password } });
+    //     return user;
+    // }
+
+
+    
     public async createUser(data: User) {
         const user = await UserModel.create(data);
         return user;
@@ -42,5 +60,6 @@ class UserService {
         return user;
     }
 }
+
 
 export default new UserService()

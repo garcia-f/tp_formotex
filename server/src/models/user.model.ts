@@ -25,7 +25,7 @@ UserModel.init({
         unique: true
     },
     password: {
-        type: DataTypes.INTEGER
+        type: DataTypes.STRING
     },
     role: {
         type: DataTypes.ENUM('user', 'admin'),
